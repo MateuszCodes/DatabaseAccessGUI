@@ -37,10 +37,6 @@ public class MainMenu extends OptionsBar{
         viewPan= new ViewPanel();
         queryPanel= new QueryPanel(0);
 
-        //Imputing a command for query
-        sqlCommand = new JLabel("Enter an SQL command");
-        inputCommand = new JTextField(30);
-
         mainPan.add(viewPan, BorderLayout.NORTH);
         mainPan.add(queryPanel, BorderLayout.SOUTH);
 
