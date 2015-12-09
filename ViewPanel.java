@@ -17,7 +17,6 @@ public class ViewPanel extends JPanel {
     public ViewPanel() throws SQLException {
 
         queryResult = new JTable();
-        //scrollArea = new JTextArea();
         scrollPane = new JScrollPane(queryResult);
         scrollPane.setPreferredSize(new Dimension(1200,200));
 
