@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 public class QueryPanel extends JPanel {
 
-    //static JScrollPane scrollPaneBottom;
     static JPanel northPanel, centerPanel, southPanel;
     static JButton findPointsBut, findMemberBut, findTransBut, findTransTypeBut, findItemById, findMenuItemById, findTransByIDSqrd;
     static JLabel fNameLabel, lNameLabel, cityLabel, dateLabel, transTypeLabel, itemIdLabel, menuItemIdLabel, memberIdLabel;
@@ -15,26 +14,21 @@ public class QueryPanel extends JPanel {
 
     public QueryPanel(int choice){
 
-//        scrollPaneBottom = new JScrollPane();
-//        scrollPaneBottom.setPreferredSize(new Dimension(1200,200));
-//        add(scrollPaneBottom);
-
         setLayout(new BorderLayout());
 
-//        validate();
-
+        //Initializes northPanel and sets the layout to BorderLayout
         northPanel = new JPanel();
         northPanel.setLayout(new BorderLayout());
 
-
+        //Initializes centerPanel and sets the layout to BorderLayout
         centerPanel = new JPanel();
         centerPanel.setLayout(new BorderLayout());
 
-
+        //Initializes southPanel and sets the layout to BorderLayout
         southPanel = new JPanel();
         southPanel.setLayout(new BorderLayout());
 
-
+        //This is a switch statement that populates the QueryPanel with text boxes and labels coresponding to the required information for that query
         switch(choice){
             case 1:
 
