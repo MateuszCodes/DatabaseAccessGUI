@@ -35,14 +35,11 @@ public class AlterWindow {
         alterPanel.add(instructLabel, BorderLayout.NORTH);
         alterPanel.add(sqlCommand, BorderLayout.CENTER);
         alterPanel.add(submitBut, BorderLayout.SOUTH);
-
-        //alterFrame.add(alterPanel);
         alterFrame.setVisible(true);
 
     }
 
     public class submitListener implements ActionListener {
-
 
         @Override
         public void actionPerformed(ActionEvent e) {
