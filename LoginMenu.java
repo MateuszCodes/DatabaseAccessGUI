@@ -5,11 +5,10 @@ import java.sql.*;
 import javax.swing.*;
 import javax.swing.JMenuBar;
 
-
 public class LoginMenu {
 
-	public static JTextField username;
-	public static JPasswordField password;
+    public static JTextField username;
+    public static JPasswordField password;
     static JFrame frame;
     static JLabel passwordL;
     static JLabel usernameL;
@@ -24,76 +23,67 @@ public class LoginMenu {
 		frame.setTitle("Login Menu");
 		frame.setLayout(new BorderLayout());
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.setVisible(true);
 		frame.setResizable(false);
-		//frame.setLocationRelativeTo(null);
-		//frame.setDefaultLookAndFeelDecorated(true);
 		loginMenu = new JPanel();
-        passMenu = new JPanel();
-
+        	passMenu = new JPanel();
 		login = new JButton("Login");
-
 		
-        usernameL = new JLabel("Username:");
+        	usernameL = new JLabel("Username:");
 
-        passwordL = new JLabel("Password:");
+        	passwordL = new JLabel("Password:");
 		username = new JTextField(15);
-        //username.setSize(200,25);
-        password = new JPasswordField(15);
-        password.setEchoChar('*');
+        	password = new JPasswordField(15);
+        	password.setEchoChar('*');
 
-        loginMenu.add(usernameL, BorderLayout.NORTH);
-        loginMenu.add(username, BorderLayout.SOUTH);
+        	loginMenu.add(usernameL, BorderLayout.NORTH);
+        	loginMenu.add(username, BorderLayout.SOUTH);
 
-        passMenu.add(passwordL,BorderLayout.NORTH);
-        passMenu.add(password, BorderLayout.SOUTH);
+        	passMenu.add(passwordL,BorderLayout.NORTH);
+        	passMenu.add(password, BorderLayout.SOUTH);
 
-        frame.getContentPane().add(loginMenu,BorderLayout.NORTH);
-        frame.getContentPane().add(passMenu,BorderLayout.CENTER);
-        //frame.add(username);
-        //frame.add(passwordL);
-        //frame.add(password);
-        frame.getContentPane().add(login,BorderLayout.SOUTH);
+        	frame.getContentPane().add(loginMenu,BorderLayout.NORTH);
+        	frame.getContentPane().add(passMenu,BorderLayout.CENTER);
+        	frame.getContentPane().add(login,BorderLayout.SOUTH);
         
-        login.addActionListener(new LoginListener());
+        	login.addActionListener(new LoginListener());
 		password.addActionListener(new LoginListener());
-        frame.setVisible(true);
+        	frame.setVisible(true);
 	}
-	 public static class LoginListener implements ActionListener
-    {
-        public LoginListener()
-        {
+	public static class LoginListener implements ActionListener
+    	{
+	        public LoginListener()
+	        {
+	
+	        }
 
-        }
+	        public void actionPerformed(ActionEvent e)
+	        {
+	            String input_user= "";
+	            String input_pass= "";
+	
+	            if(!username.getText().equals(""))
+	            {
+	                input_user = username.getText();
+	                System.out.println("userName Set");
+	            }
+	            if(!password.getPassword().equals(""))
+	            {
+	                input_pass = String.valueOf(password.getPassword());
+	                System.out.println("password Set");
+	            }
+	            //System.out.println("Test user " + input_user + " Test Pass " + input_pass);
+	
+	            if(input_user != "" && input_pass != ""){
+	                try {
+	                    SQLConnect.connect(input_user, input_pass);
+	                } catch (SQLException e1) {
+	                    e1.printStackTrace();
+	                }
+	            }
+	
+	        }
 
-        public void actionPerformed(ActionEvent e)
-        {
-            String input_user= "";
-            String input_pass= "";
-
-            if(!username.getText().equals(""))
-            {
-                input_user = username.getText();
-                System.out.println("userName Set");
-            }
-            if(!password.getPassword().equals(""))
-            {
-                input_pass = String.valueOf(password.getPassword());
-                System.out.println("password Set");
-            }
-            //System.out.println("Test user " + input_user + " Test Pass " + input_pass);
-
-            if(input_user != "" && input_pass != ""){
-                try {
-                    SQLConnect.connect(input_user, input_pass);
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-            }
-
-        }
-
-    }
+    	}
 
     public static class LogoutListener implements ActionListener
     {
