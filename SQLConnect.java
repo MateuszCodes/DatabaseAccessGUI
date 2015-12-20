@@ -7,7 +7,7 @@ public class SQLConnect {
 
     public static void connect(String user, String pass) throws SQLException {
     
-        String URL = "jdbc:oracle:thin:" + user + "/" + pass + "Server address is removed for security purposes";
+        String URL = "jdbc:oracle:thin:" + user + "/" + pass + "@address:port:name";
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver").newInstance();
